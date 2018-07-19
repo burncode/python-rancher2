@@ -84,6 +84,7 @@ class Rancher2_V3API_Args(object):
         Public method for constructing arguments.
         """
         self._parse_args(args)
+        return True
 
     def get_collection(self):
         """

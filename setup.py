@@ -15,6 +15,8 @@ setup(
     url              = 'http://github.com/djtaylor/python-rancher2',
     license          = 'GPLv3',
     install_requires = [],
+    test_suite       = 'nose.collector',
+    tests_require    = ['nose'],
     entry_points     = {
         'console_scripts': ['rancher2=rancher2:cli_client'],
     },

@@ -11,7 +11,7 @@ def merge_dict(a, b, path=None):
         :type a: dict
         :param b: The second dictionary
         :type b: dict
-        :param path: Not really sure what this does, using re-purposed code here
+        :param path: Prepend optional path to the dict structure
         :type path: list
         """
         if path is None: path = []
@@ -75,9 +75,10 @@ class Collection(object):
         :type map_dict: dict
         """
         if not map_dict:
-            return None
+            return False
         else:
             self.collection = merge_dict(map_dict, self.collection)
+            return True
 
     def get(self):
         """

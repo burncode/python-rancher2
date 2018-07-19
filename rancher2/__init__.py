@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-__version__ = '0.1.post1'
+__version__ = '0.1.post3'
 
 from rancher2.interface import Rancher2_V3API_Interface
 

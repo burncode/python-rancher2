@@ -1,7 +1,6 @@
 import json
 import requests
 from sys import stderr, exit
-from requests.auth import HTTPBasicAuth
 
 class Rancher2_V3API_Connection(object):
     """
@@ -61,3 +60,4 @@ class Rancher2_V3API_Connection(object):
         Test the connection.
         """
         self._test_auth()
+        return True

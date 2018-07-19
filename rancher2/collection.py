@@ -102,7 +102,7 @@ class Collection(object):
         Accessing collection data::
 
             # Get subkey2
-            print newcol.key1.subkey2
+            new_var = newcol.key1.subkey2
 
         :rtype: namedtuple
         """

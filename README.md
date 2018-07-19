@@ -1,3 +1,5 @@
+[![Build Status](https://api.travis-ci.org/djtaylor/python-rancher2.png)](https://api.travis-ci.org/djtaylor/python-rancher2)
+
 # Rancher 2 v3 API Interface
 
 The first release of this module allows you to query the Rancher 2 v3 API with GET requests. This is a thin layer on top of doing straight cURL requests. This started as an attempt to understand using the Rancher 2 v3 API.
@@ -26,3 +28,9 @@ $ rancher2 get --path tokens --query key1,key2=val2
 ```
 
 CLI dumps indented response JSON to the terminal.
+
+### Tests
+Testing is done with `unittest` and `nose` for discovery.
+```
+$ python setup.py test
+```

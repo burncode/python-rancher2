@@ -8,8 +8,8 @@ class Rancher2_V3API_Interface(object):
     """
     Class for handling interactions with the CLI client.
     """
-    def __init__(self):
-        self.args = Rancher2_V3API_Args.construct()
+    def __init__(self, args=None):
+        self.args = Rancher2_V3API_Args.construct(args)
         self.connection = Rancher2_V3API_Connection(
             self.args.connection.api_url,
             self.args.connection.api_token)

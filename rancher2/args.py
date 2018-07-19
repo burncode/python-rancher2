@@ -1,7 +1,7 @@
 import argparse
 from os import environ, getenv
 from argparse import ArgumentTypeError, RawTextHelpFormatter
-from sys import stdout, stderr, exit
+from sys import stdout, stderr, exit, argv
 
 from rancher2.collection import Collection
 
@@ -36,7 +36,7 @@ class Rancher2_V3API_Args(object):
             '1 = HTTP error, see stderr for HTTP code and response body'
         ]))
 
-    def _parse_args(self):
+    def _parse_args(self, args):
         """
         Construct arguments to form an API connection.
         """
@@ -56,7 +56,7 @@ class Rancher2_V3API_Args(object):
             type=self._validate_command)
 
         # Parse provided arguments
-        args = parser.parse_args()
+        args = parser.parse_args(args)
 
         # Get all required connection flags
         self.args['connection']['api_url']   = getenv('RANCHER2_API_URL', getattr(args, 'api_url', None))
@@ -79,11 +79,12 @@ class Rancher2_V3API_Args(object):
         # Params look good
         return True
 
-    def parse(self):
+    def parse(self, args):
         """
         Public method for constructing arguments.
         """
-        self._parse_args()
+        self._parse_args(args)
+        return True
 
     def get_collection(self):
         """
@@ -92,12 +93,12 @@ class Rancher2_V3API_Args(object):
         return Collection.create(self.args)
 
     @classmethod
-    def construct(cls):
+    def construct(cls, args=argv[1:]):
         """
         Class method for constructing and returning an arguments object.
         """
-        args = cls()
-        args.parse()
+        parser = cls()
+        parser.parse(args)
 
         # Return a formatted arguments object
-        return args.get_collection()
+        return parser.get_collection()

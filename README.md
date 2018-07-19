@@ -26,3 +26,9 @@ $ rancher2 get --path tokens --query key1,key2=val2
 ```
 
 CLI dumps indented response JSON to the terminal.
+
+### Tests
+Testing is done with `unittest` and `nose` for discovery.
+```
+$ python setup.py test
+```

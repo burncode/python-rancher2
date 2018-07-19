@@ -14,7 +14,7 @@ setup(
     author_email     = 'djtaylor13@gmail.com',
     url              = 'http://github.com/djtaylor/python-rancher2',
     license          = 'GPLv3',
-    install_requires = [],
+    install_requires = ['requests'],
     test_suite       = 'nose.collector',
     tests_require    = ['nose'],
     entry_points     = {

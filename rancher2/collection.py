@@ -1,7 +1,6 @@
 import re
 import json
 from collections import namedtuple
-from types import InstanceType, ClassType
 
 def merge_dict(a, b, path=None):
         """

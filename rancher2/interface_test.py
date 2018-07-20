@@ -1,8 +1,5 @@
-import io
-import sys
 import mock
 import unittest
-import contextlib
 
 from rancher2.interface import Rancher2_V3API_Interface
 from rancher2.connection_test import Rancher2_V3API_Connection_MockResponse

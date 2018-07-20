@@ -1,4 +1,5 @@
 import unittest
+from six import iteritems
 from collections import namedtuple
 
 import rancher2.collection as rancher2_collection
@@ -38,7 +39,7 @@ class Collection_Test(unittest.TestCase):
         merged = collection.get()
 
         # Compare the objects
-        for k,v in self.dict_m.iteritems():
+        for k,v in iteitems(self.dict_m):
             self.assertEqual(v, getattr(merged, k, None))
 
 if __name__ == '__main__':

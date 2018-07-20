@@ -1,6 +1,6 @@
 import argparse
+from os import getenv
 from six import iteritems
-from os import environ, getenv
 from argparse import ArgumentTypeError, RawTextHelpFormatter
 from sys import stdout, stderr, exit, argv
 

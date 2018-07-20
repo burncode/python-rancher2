@@ -39,7 +39,7 @@ class Collection_Test(unittest.TestCase):
         merged = collection.get()
 
         # Compare the objects
-        for k,v in iteitems(self.dict_m):
+        for k,v in iteritems(self.dict_m):
             self.assertEqual(v, getattr(merged, k, None))
 
 if __name__ == '__main__':

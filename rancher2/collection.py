@@ -1,7 +1,6 @@
 import re
 import json
 from collections import namedtuple
-from types import InstanceType, ClassType
 
 def merge_dict(a, b, path=None):
         """
@@ -102,7 +101,7 @@ class Collection(object):
         Accessing collection data::
 
             # Get subkey2
-            print newcol.key1.subkey2
+            new_var = newcol.key1.subkey2
 
         :rtype: namedtuple
         """

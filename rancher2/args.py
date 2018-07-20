@@ -1,5 +1,6 @@
 import argparse
-from os import environ, getenv
+from os import getenv
+from six import iteritems
 from argparse import ArgumentTypeError, RawTextHelpFormatter
 from sys import stdout, stderr, exit, argv
 
@@ -70,8 +71,8 @@ class Rancher2_V3API_Args(object):
         self.args['command'] = getattr(args, 'command')
 
         # All connection flags required
-        if not all([v for k,v in self.args['connection'].iteritems()]):
-            missing_params = [k for k,v in self.args['connection'].iteritems() if not v]
+        if not all([v for k,v in iteritems(self.args['connection'])]):
+            missing_params = [k for k,v in iteritems(self.args['connection']) if not v]
             parser.print_help()
             stderr.write('\nMissing required connection flag(s): {0}\n'.format(', '.join(missing_params)))
             exit(1)

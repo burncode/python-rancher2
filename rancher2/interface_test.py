@@ -1,6 +1,5 @@
 import mock
 import unittest
-from exceptions import SystemExit
 
 from rancher2.interface import Rancher2_V3API_Interface
 from rancher2.connection_test import Rancher2_V3API_Connection_MockResponse
@@ -27,5 +26,5 @@ class Rancher2_V3API_Interface_Test(unittest.TestCase):
     def test_interface_get(self, mock_get):
         """Call the interface `get` method directly"""
         with self.assertRaises(SystemExit) as cm:
-            Rancher2_V3API_Interface(self.dummy_args).get()
+            Rancher2_V3API_Interface(self.dummy_args).get(silent=True)
         self.assertEqual(cm.exception.code, 0)

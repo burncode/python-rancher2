@@ -2,3 +2,5 @@ rancher2.egg-info
 build
 dist
 *.pyc
+rancher2/__pycache__
+.pytest_cache

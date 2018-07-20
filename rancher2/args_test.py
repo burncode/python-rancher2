@@ -3,7 +3,6 @@ import unittest
 import argparse
 import contextlib
 from copy import deepcopy
-from exceptions import SystemExit
 
 import rancher2.args as rancher2_args
 

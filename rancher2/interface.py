@@ -14,12 +14,13 @@ class Rancher2_V3API_Interface(object):
             self.args.connection.api_url,
             self.args.connection.api_token)
 
-    def get(self):
+    def get(self, silent=False):
         """
         Get a remote resource.
         """
         response = self.connection.GET(self.args.path, self.args.query)
-        stdout.write('{0}\n'.format(json.dumps(json.loads(response.text), indent=2)))
+        if not silent:
+            stdout.write('{0}\n'.format(json.dumps(json.loads(response.text), indent=2)))
         exit(0)
 
     def run(self):

@@ -2,7 +2,7 @@
 
 # Rancher 2 v3 API Interface
 
-The first release of this module allows you to query the Rancher 2 v3 API with GET requests. This is a thin layer on top of doing straight cURL requests. This started as an attempt to understand using the Rancher 2 v3 API.
+The first release of this module allows you to query the Rancher 2 v3 API with GET,PUT,POST, and DELETE requests. This is a thin layer on top of doing straight cURL requests. This started as an attempt to understand using the Rancher 2 v3 API.
 
 ### Installation
 The prefix option may vary depending on the system you are running.
@@ -25,6 +25,9 @@ $ rancher2 get --path tokens
 $
 # Supply query arguments
 $ rancher2 get --path tokens --query key1,key2=val2
+$
+# Make a PUT request with payload
+$ rancher2 post --path tokens --payload '{"key":"value"}'
 ```
 
 CLI dumps indented response JSON to the terminal.

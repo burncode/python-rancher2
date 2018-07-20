@@ -18,15 +18,14 @@ class Rancher2_V3API_Args_Test(unittest.TestCase):
         '--path',
         'test',
         '--query',
-        'test']
+        'test',
+        '--payload',
+        '{"key":"value"}']
 
     def test_args_parse(self):
         """Test creating an arguments object directly with `parse`"""
         args = rancher2_args.Rancher2_V3API_Args()
         self.assertTrue(args.parse(self.example_args))
-
-    def test_args_parse_and_get_collection(self):
-        """Test parsing args and directly calling `get_collection`"""
 
     def test_args_create(self):
         """Test creating args by calling the `construct` classmethod"""

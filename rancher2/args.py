@@ -11,12 +11,13 @@ class Rancher2_V3API_Args(object):
     Construct and return an arguments object.
     """
     def __init__(self):
-        self.commands = ['get']
+        self.commands = ['get', 'delete', 'put', 'post']
         self.args     = {
             'connection': {},
             'path': None,
             'command': None,
-            'query': None
+            'query': None,
+            'payload': None,
         }
 
     def _validate_command(self, cmd):
@@ -50,6 +51,7 @@ class Rancher2_V3API_Args(object):
         # Resource parameters
         parser.add_argument("--path", help="Path to a specific resource relative to api_url")
         parser.add_argument("--query", help="Any additional query parameters to pass: --query key1,key2=val2")
+        parser.add_argument("--payload", help="Request payload to include with POST/PUT requests: comma delimited k-v pairs or JSON string")
 
         # API command
         parser.add_argument("command",
@@ -66,6 +68,7 @@ class Rancher2_V3API_Args(object):
         # Store the API resource path / query
         self.args['path'] = getattr(args, 'path', None)
         self.args['query'] = getattr(args, 'query', None)
+        self.args['payload'] = getattr(args, 'payload', None)
 
         # Store the command
         self.args['command'] = getattr(args, 'command')

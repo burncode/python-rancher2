@@ -25,6 +25,23 @@ class Rancher2_V3API_Interface_Test(unittest.TestCase):
     @mock.patch('requests.get', side_effect=Rancher2_V3API_Connection_MockResponse.GET)
     def test_interface_get(self, mock_get):
         """Call the interface `get` method directly"""
-        with self.assertRaises(SystemExit) as cm:
-            Rancher2_V3API_Interface(self.dummy_args).get(silent=True)
-        self.assertEqual(cm.exception.code, 0)
+        response = Rancher2_V3API_Interface(self.dummy_args).get()
+        self.assertEqual(response.status_code, 200)
+
+    @mock.patch('requests.put', side_effect=Rancher2_V3API_Connection_MockResponse.PUT)
+    def test_interface_put(self, mock_put):
+        """Call the interface `put` method directly"""
+        response = Rancher2_V3API_Interface(self.dummy_args).put()
+        self.assertEqual(response.status_code, 200)
+
+    @mock.patch('requests.post', side_effect=Rancher2_V3API_Connection_MockResponse.POST)
+    def test_interface_get(self, mock_post):
+        """Call the interface `post` method directly"""
+        response = Rancher2_V3API_Interface(self.dummy_args).post()
+        self.assertEqual(response.status_code, 200)
+
+    @mock.patch('requests.delete', side_effect=Rancher2_V3API_Connection_MockResponse.DELETE)
+    def test_interface_get(self, mock_delete):
+        """Call the interface `delete` method directly"""
+        response = Rancher2_V3API_Interface(self.dummy_args).delete()
+        self.assertEqual(response.status_code, 200)

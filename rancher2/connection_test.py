@@ -22,6 +22,18 @@ class Rancher2_V3API_Connection_MockResponse(object):
     def GET(cls, *args, **kwargs):
         return cls.MockResponse({'key1': 'val1'}, 200)
 
+    @classmethod
+    def PUT(cls, *args, **kwargs):
+        return cls.MockResponse({'key1': 'val1'}, 200)
+
+    @classmethod
+    def POST(cls, *args, **kwargs):
+        return cls.MockResponse({'key1': 'val1'}, 200)
+
+    @classmethod
+    def DELETE(cls, *args, **kwargs):
+        return cls.MockResponse({'key1': 'val1'}, 200)
+
 class Rancher2_V3API_Connection_Test(unittest.TestCase):
     """Tests for `connection.py`."""
 
